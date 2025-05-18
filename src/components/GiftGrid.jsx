@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { fetchGifs } from '../helpers/api'
-import { GiftItem } from "./GiftItem";
-import { useFetchGifs } from "../customHooks/useFetchGifts";
+import {useEffect, useState} from "react";
+import {fetchGifs} from '../helpers/api'
+import {GiftItem} from "./GiftItem";
+import {useFetchGifs} from "../hooks/useFetchGifts";
+import PropTypes from "prop-types";
 
-export const GiftGrid = ({category}) =>{
+export const GiftGrid = ({category}) => {
 
     /*
     const[gifts,setGifts]=useState([]);
@@ -20,27 +21,28 @@ export const GiftGrid = ({category}) =>{
 */
 
     //Calling custom hook
-    const { gifts, isLoading } = useFetchGifs(category);
+    const {gifts, isLoading} = useFetchGifs(category);
 
 
     return (
         <div>
-            {
-                isLoading ? (<h1> CARGANDO....</h1>) :
-
-                (<>
+            <>
                 <h3> {category} </h3>
+                {
+                    isLoading && (<h1> LOADING....</h1>)
+                }
+
                 <div className="card-grid">
                     {
-                        gifts.map((element) => 
-                            ( <GiftItem key={element.id} {...element} />))
-
+                        gifts.map((element) =>
+                            (<GiftItem key={element.id} {...element} />))
                     }
                 </div>
-                </>
-                )
-            }
+            </>
         </div>
     );
-
 };
+
+GiftGrid.propTypes = {
+    category: PropTypes.string.isRequired,
+}
