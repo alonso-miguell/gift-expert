@@ -24,6 +24,9 @@ export const GiftGrid = ({category}) => {
     const {gifts, isLoading} = useFetchGifs(category);
 
 
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <div>
             <>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchGifs } from "../helpers/api";
-
+import {GiphyRandomResponse} from "../data/giphy.response";
 
 /*
 A custom hooks is nothing more than a function
