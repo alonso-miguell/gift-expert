@@ -1,22 +1,32 @@
-import { useState } from "react";
+import {SubmitEventHandler, useState} from "react";
 import PropTypes from "prop-types";
 
-export const AddCategory =( {setCategories, onNewCategory}) =>{
+type CategoryProps = {
+    onNewCategory: (category: string) => void;
+};
 
-    const [inputValue, setInputValue]=useState('');
+// type SubmitProps = {
+//     submitEvent: (event: SubmitEventHandler<HTMLFormElement>) => void;
+// };
 
-    const handleOnChange=(event) => {
-        console.log('value is: '+event.target.value);
+// export const AddCategory =( {setCategories, onNewCategory}) =>{
+export const AddCategory = ({onNewCategory}: CategoryProps) => {
+
+    const [inputValue, setInputValue] = useState('');
+
+    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        // event.
+        console.log('value is: ' + event.target.value);
         setInputValue(event.target.value)
     }
 
-    const handleOnSubmit=(event) =>{
+    const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(event);
 
         //Can share both, the state or the function 
         //setCategories( (category)=> [  ...category, inputValue]);
-        if(inputValue.trim().length <=1 ) return;
+        if (inputValue.trim().length <= 1) return;
 
         onNewCategory(inputValue.trim());
 
@@ -24,16 +34,15 @@ export const AddCategory =( {setCategories, onNewCategory}) =>{
     }
 
 
-
-    return ( 
-    <form onSubmit={ handleOnSubmit } data-testid="category-form">
-        <input
-        type="text"
-        placeholder="Search a gift" 
-        value={inputValue}
-        onChange={handleOnChange}        
-        />
-    </form>
+    return (
+        <form onSubmit={handleOnSubmit} data-testid="category-form">
+            <input
+                type="text"
+                placeholder="Search a gift"
+                value={inputValue}
+                onChange={handleOnChange}
+            />
+        </form>
     );
 }
 

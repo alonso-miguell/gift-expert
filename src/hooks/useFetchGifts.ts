@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchGifs } from "../helpers/api";
+import {fetchGifs, GifElement} from "../helpers/api";
 import {GiphyRandomResponse} from "../data/giphy.response";
 
 /*
@@ -17,9 +17,9 @@ return {} for hook
                 Runs after render + when data/dependecies change
 */
 
-export const useFetchGifs =(category) =>{
+export const useFetchGifs =(category: string) =>{
 
-    const[gifts,setGifts]=useState([]);
+    const[gifts,setGifts]=useState<GifElement[]>([]);
     const[isLoading, setIsLoading]=useState(true);
 
     const getGifts=async() =>{
@@ -35,12 +35,8 @@ export const useFetchGifs =(category) =>{
     /* Since isLoading is calles the same in the hook we can omit the 
     
     value:object syntaxis
-    
-    return {
-        images: gifts,
-        isLoading
-    };
     */
+
     return {
         gifts: gifts,
         isLoading: isLoading

@@ -4,7 +4,11 @@ import {GiftItem} from "./GiftItem";
 import {useFetchGifs} from "../hooks/useFetchGifts";
 import PropTypes from "prop-types";
 
-export const GiftGrid = ({category}) => {
+type GiftGridProps = {
+    category: string
+}
+
+export const GiftGrid = ({category} : GiftGridProps) => {
 
     /*
     const[gifts,setGifts]=useState([]);

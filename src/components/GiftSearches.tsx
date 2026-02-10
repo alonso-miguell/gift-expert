@@ -1,5 +1,5 @@
 interface GiftSearchesProps {
-    giftSearches?: string[]
+    giftSearches: string[]
 }
 
 export const GiftSearches = ({giftSearches}: GiftSearchesProps) => {
