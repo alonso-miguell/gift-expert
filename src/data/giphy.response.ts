@@ -1,5 +1,5 @@
 export interface GiphyRandomResponse {
-    data: Gif;
+    data: Gif[];
     meta: Meta;
 }
 

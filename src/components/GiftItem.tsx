@@ -1,5 +1,6 @@
-import PropTypes from "prop-types";
-import {GifElement} from "../helpers/api";
+// import PropTypes from "prop-types";
+
+import {GifElement} from "../data/Interfaces";
 
 export const GiftItem = ({url, title, id, width, height}  : GifElement) => {
     return (
@@ -10,7 +11,7 @@ export const GiftItem = ({url, title, id, width, height}  : GifElement) => {
     );
 }
 
-GiftItem.propTypes = {
-    url: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-}
+// GiftItem.propTypes = {
+//     url: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+// }

@@ -1,12 +1,6 @@
-import {Gif} from "../data/giphy.response";
+import {Gif, GiphyRandomResponse} from "../data/giphy.response";
+import {GifElement} from "../data/Interfaces";
 
-export interface GifElement {
-    id: string;
-    title: string;
-    url: string;
-    width: number;
-    height: number;
-}
 
 export const fetchGifs = async (category: string) => {
     const apiKey = 'dLKT8mKiP2xYk5hQt2JB2x9m7zFB0nq5';
@@ -25,4 +19,4 @@ export const fetchGifs = async (category: string) => {
     ));
 
     return gifs;
-} 
+}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
-import {fetchGifs, GifElement} from "../helpers/api";
+import {fetchGifs} from "../helpers/api";
+import {GifElement} from "../data/Interfaces";
+
 import {GiphyRandomResponse} from "../data/giphy.response";
+import {fetchGifsWithAxios} from "../helpers/axiosApi";
 
 /*
 A custom hooks is nothing more than a function
@@ -23,7 +26,9 @@ export const useFetchGifs =(category: string) =>{
     const[isLoading, setIsLoading]=useState(true);
 
     const getGifts=async() =>{
-        setGifts(await fetchGifs(category) );
+        // setGifts(await fetchGifs(category) );
+        // await fetchGifsWithAxios(category);
+        setGifts(await fetchGifsWithAxios(category));
         setIsLoading(false);
     }
 

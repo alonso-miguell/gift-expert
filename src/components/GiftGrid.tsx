@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {fetchGifs} from '../helpers/api'
 import {GiftItem} from "./GiftItem";
 import {useFetchGifs} from "../hooks/useFetchGifts";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 type GiftGridProps = {
     category: string
@@ -50,6 +50,6 @@ export const GiftGrid = ({category} : GiftGridProps) => {
     );
 };
 
-GiftGrid.propTypes = {
-    category: PropTypes.string.isRequired,
-}
+// GiftGrid.propTypes = {
+//     category: PropTypes.string.isRequired,
+// }

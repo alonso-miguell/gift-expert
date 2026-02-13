@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {AddCategory} from "./components/AddCategory";
+import {GifSearchBar} from "./components/GifSearchBar";
 import {GiftGrid} from "./components/GiftGrid";
 import {GiftSearches} from "./components/GiftSearches";
 
@@ -24,7 +24,7 @@ export const GiftExpertApp = () => {
         <h1> GiftExpertApp</h1>
 
         {/*<AddCategory setCategories={setCategories} onNewCategory={addCategory}></AddCategory>*/}
-        <AddCategory onNewCategory={addCategory}></AddCategory>
+        <GifSearchBar onNewCategory={addCategory}></GifSearchBar>
         <GiftSearches giftSearches={categories}></GiftSearches>
 
         <div className="card-grid">

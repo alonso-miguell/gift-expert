@@ -1,12 +1,12 @@
 import {fireEvent, render, screen} from '@testing-library/react';
 import {GiftExpertApp} from '../../GiftExpertApp';
 import {GiftItem} from "../../components/GiftItem";
-import {AddCategory, handleOnSubmit} from "../../components/AddCategory";
+import {GifSearchBar, handleOnSubmit} from "../../components/GifSearchBar";
 
 describe('Gift Item Suite test', () => {
 
         test('Add Category test', () => {
-            render(<AddCategory />);
+            render(<GifSearchBar />);
             const inputElement = screen.getByRole('textbox');
             fireEvent.input(inputElement, {target: {value: "Odin"}});
 
@@ -17,7 +17,7 @@ describe('Gift Item Suite test', () => {
 
         test('Submit test', () => {
             const onNewCategoryFn = jest.fn();
-            render(<AddCategory onNewCategory={onNewCategoryFn} />);
+            render(<GifSearchBar onNewCategory={onNewCategoryFn} />);
 
             const inputValue="Maelle";
             const inputElement = screen.getByRole('textbox');
@@ -34,7 +34,7 @@ describe('Gift Item Suite test', () => {
 
         test('Submit test with empty input', () => {
             const onNewCategoryFn = jest.fn();
-            render(<AddCategory onNewCategory={onNewCategoryFn} />);
+            render(<GifSearchBar onNewCategory={onNewCategoryFn} />);
 
             const inputValue="M";
             const inputElement = screen.getByRole('textbox');
