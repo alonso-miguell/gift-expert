@@ -27,13 +27,13 @@ export const useFetchGifs =(category: string) =>{
 
     const getGifts=async() =>{
         // setGifts(await fetchGifs(category) );
-        // await fetchGifsWithAxios(category);
         setGifts(await fetchGifsWithAxios(category));
         setIsLoading(false);
     }
 
     useEffect( ()=>{
-        getGifts(); 
+        console.log("fetchGifs called");
+        getGifts();
     },
     [] );
 

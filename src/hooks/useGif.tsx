@@ -11,23 +11,23 @@ export const useGif = () => {
     // };
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // const newCategory = (event.target.value).toLowerCase();
-        // if (event.target.value.trim().length <= 1) return;
-
-        // if (categories.includes(newCategory)) return;
-        //
-        // setCategories([newCategory, ...categories]);
         setCurrentValue(event.target.value)
     }
 
-    useEffect( ()=> {
+    useEffect(() => {
         // console.log('Message mounted');
-        const timeoutToResolve=  setTimeout(() => {
-            console.log('inputValue in useEffect hook: ' +currentValue);
+        const timeoutToResolve = setTimeout(() => {
+            console.log('inputValue in useEffect hook: ' + currentValue);
             if (currentValue.trim().length <= 1) return;
-            const newCategory= currentValue.toLowerCase();
-            if(categories.includes(newCategory)) return;
-            setCategories([newCategory, ...categories]);
+
+            const newCategory = currentValue.toLowerCase();
+
+            if (categories.includes(newCategory)) return;
+
+
+
+            setCategories([newCategory, ...categories].slice(0,6));
+
 
             // newCategory(currentValue.trim());
             setCurrentValue('');
