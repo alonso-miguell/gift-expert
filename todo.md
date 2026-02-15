@@ -1,0 +1,6 @@
+- Create an array for keeping searching terms (limited to 8)
+- Reorder the terms from the most recent to the oldest
+- Validate if the term already exists (convert to lower caps)
+- Isolate logic from components
+- Create an array/cache/record for keeping gif elements
+- Try isolating the record from hooks logic or use useRef
